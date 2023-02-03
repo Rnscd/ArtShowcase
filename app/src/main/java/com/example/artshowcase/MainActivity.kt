@@ -17,12 +17,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.artshowcase.ui.theme.ArtShowcaseTheme
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,7 +29,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ArtShowcaseTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -51,10 +47,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtApp() {
     var result by remember { mutableStateOf( 1) }
-    var pname = ""
-    var pauthor = ""
-    var pimage = R.drawable.ic_launcher_foreground
-  //if
+    var pname : String
+    var pauthor : String
+    var pimage : Int
 
     when(result){
         1 -> {
@@ -124,8 +119,8 @@ fun ArtApp() {
         modifier = Modifier
             .fillMaxWidth().fillMaxHeight())
     {
-        var pinturasName = "$pname"
-        var pinturasAuthor = "$pauthor"
+        val pinturasName = pname
+        val pinturasAuthor = pauthor
         Text(text = pinturasName, fontFamily = FontFamily.Cursive, fontSize = 53.sp, modifier = Modifier.padding(40.dp))
 
         Image(painter = painterResource(id = pimage), contentDescription = "painting",
@@ -155,38 +150,3 @@ fun DefaultPreview() {
         ArtApp()
     }
 }
-
-
-
-/*  if(result == 1) {
-        pimage = R.drawable.ic_launcher_background
-    }
-    else if(result == 2) {
-        pimage = R.drawable.ic_launcher_foreground
-    }
-    else if(result ==3) {
-        pimage = R.drawable.ic_launcher_background
-    }
-    else if(result==4){
-            pimage = R.drawable.ic_launcher_background
-    }
-    else if(result == 2) {
-        pimage = R.drawable.ic_launcher_foreground
-    }
-    else if(result ==3) {
-        pimage = R.drawable.ic_launcher_background
-    }
-    else if(result==4){
-        pimage = R.drawable.ic_launcher_background
-    }
-    else if(result == 2) {
-        pimage = R.drawable.ic_launcher_foreground
-    }
-    else if(result ==3) {
-        pimage = R.drawable.ic_launcher_background
-    }
-    else if(result==4){
-        pimage = R.drawable.ic_launcher_background
-    }
-        else pimage = R.drawable.ic_launcher_foreground
-*/

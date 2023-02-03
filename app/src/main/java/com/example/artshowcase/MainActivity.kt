@@ -136,10 +136,10 @@ fun ArtApp() {
         Text(text = pinturasAuthor, fontSize = 15.sp)
         Row(modifier = Modifier.padding(30.dp)) {
             Button(onClick = { if (result > 1) result-- else result = 12}, modifier = Modifier.width(120.dp)) { Text(
-                text = "Anterior")}
+                text = "Previous")}
             Spacer(modifier = Modifier.width(10.dp))
             Button(onClick = { if (result < 12) result++ else result = 1}, modifier = Modifier.width(120.dp)) { Text(
-                text = "Próximo"
+                text = "Next"
             )}
         }
 
